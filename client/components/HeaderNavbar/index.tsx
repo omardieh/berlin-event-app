@@ -1,3 +1,5 @@
+import { headerLinks } from "@/constants/headerLinks";
+import { IHeaderLink } from "@/types";
 import Link from "next/link";
 
 export default function HeaderNavbar() {
@@ -9,17 +11,13 @@ export default function HeaderNavbar() {
         </Link>
       </div>
       <ul className="flex items-center space-x-4">
-        <li>
-          <Link href="/" className="text-gray-600 hover:text-gray-800">
-            Home
+      {headerLinks.map(( {href, className, text} : IHeaderLink, index: number) => (
+          <li key={index}>
+          <Link href={href} className={className}>
+            {text}
           </Link>
         </li>
-        <li className="h-6 border-l border-gray-300"></li>
-        <li>
-          <Link href="/about" className="text-gray-600 hover:text-gray-800">
-            About
-          </Link>
-        </li>
+        ))}
       </ul>
     </nav>
   );
