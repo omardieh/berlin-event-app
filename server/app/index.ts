@@ -1,15 +1,16 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import path from "path";
+import { environmentConfig, securityConfig } from "../config";
 
 dotenv.config();
-
-const app: Express = express();
 const port = process.env.PORT || 3001;
 
-app.use(express.static(path.join(__dirname, '../public')));
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, '../views'));
+const app: Express = express();
+
+// config :
+environmentConfig(app);
+securityConfig(app);
+
 
 app.get("/", (req: Request, res: Response) => {
   res.render('index', { siteTitle: "Hello World" });

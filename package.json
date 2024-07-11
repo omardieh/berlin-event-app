@@ -1,0 +1,17 @@
+{
+  "name": "berlin-event-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "app:prod": "NODE_ENV=production concurrently --kill-others \"pnpm --prefix ./server run dev\" \"npm --prefix client run dev\"",
+    "app:dev": "set NODE_ENV=development&&concurrently --kill-others \"pnpm --prefix ./server run dev\" \"npm --prefix client run dev\"",
+    "app:install": "pnpm install && pnpm --prefix ./server install && pnpm --prefix ./client install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
