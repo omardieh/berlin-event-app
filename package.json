@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "app:prod": "NODE_ENV=production concurrently --kill-others \"pnpm --prefix ./server run dev\" \"npm --prefix client run dev\"",
-    "app:dev": "set NODE_ENV=development&&concurrently --kill-others \"pnpm --prefix ./server run dev\" \"npm --prefix client run dev\"",
-    "app:install": "pnpm install && pnpm --prefix ./server install && pnpm --prefix ./client install"
+    "app:prod": "NODE_ENV=production concurrently --kill-others \"pnpm --prefix ./backend run dev\" \"npm --prefix frontend run dev\"",
+    "app:dev": "set NODE_ENV=development&&concurrently --kill-others \"pnpm --prefix ./backend run dev\" \"npm --prefix frontend run dev\"",
+    "app:install": "pnpm install && pnpm --prefix ./backend install && pnpm --prefix ./frontend install"
   },
   "keywords": [],
   "author": "",
