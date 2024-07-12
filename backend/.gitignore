@@ -19,6 +19,9 @@ yarn-error.log*
 # typescript
 /dist
 
+# tests
+/coverage
+
 # environment variables 
 .env
 .env.production
