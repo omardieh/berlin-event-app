@@ -7,7 +7,7 @@
     "app:prod": "NODE_ENV=production concurrently --kill-others \"pnpm --prefix ./backend run dev\" \"npm --prefix frontend run dev\"",
     "app:dev": "set NODE_ENV=development&&concurrently --kill-others \"pnpm --prefix ./backend run dev\" \"npm --prefix frontend run dev\"",
     "app:install": "pnpm install && pnpm --prefix ./backend install && pnpm --prefix ./frontend install",
-    "app:install-f": "rm -rf node_modules/ frontend/node_modules/ backend/node_modules/ && pnpm app:install"
+    "app:clear": "rm -rf node_modules/ frontend/node_modules/ frontend/.next/ frontend/build/ backend/node_modules/ backend/dist/ backend/coverage/"
   },
   "keywords": [],
   "author": "",

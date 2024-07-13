@@ -30,6 +30,7 @@
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.14.10",
     "@types/supertest": "^6.0.2",
+    "colors": "^1.4.0",
     "concurrently": "^8.2.2",
     "eslint": "9.x",
     "globals": "^15.8.0",
