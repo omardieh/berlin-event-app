@@ -8,7 +8,7 @@ This is a full-stack application. It includes both a server-side and client-side
 
 Node version `v18.20.4`
 
-## Installation
+### Installation
 
 To install the necessary dependencies, run the following command:
 
