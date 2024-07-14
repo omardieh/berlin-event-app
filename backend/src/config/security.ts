@@ -1,6 +1,6 @@
-import helmet from "helmet";
-import cors from "cors";
-import { Application } from "express";
+import helmet from 'helmet';
+import cors from 'cors';
+import { Application } from 'express';
 
 class SecurityConfig {
   private app: Application;

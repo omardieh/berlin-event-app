@@ -1,12 +1,12 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts}"] },
-  { ignores: ["dist/*", "coverage/*", "jest.config.js", "__tests__/"] },
+  { files: ['**/*.{js,mjs,cjs,ts}'] },
+  { ignores: ['dist/*', 'coverage/*', 'jest.config.js', '__tests__/'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
@@ -14,15 +14,15 @@ export default [
   eslintPluginPrettierRecommended,
   {
     rules: {
-      "prettier/prettier": [
-        "error",
+      'prettier/prettier': [
+        'error',
         {
-          trailingComma: "all",
-          tabWidth: 12,
-          semi: false,
+          trailingComma: 'all',
+          semi: true,
           singleQuote: true,
           bracketSpacing: true,
           eslintIntegration: true,
+          tabWidth: 2,
           printWidth: 120,
         },
       ],
