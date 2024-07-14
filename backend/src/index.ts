@@ -1,3 +1,3 @@
-import app from "./App";
+import app from "@/app";
 
-app.startServer();
+app.runServer(Number(process.env.SERVER_PORT) || 3001);

@@ -1,7 +1,7 @@
 import morgan from "morgan";
 import colors from "colors";
 
-export const morganMiddleware = morgan(function (tokens, req, res) {
+export const loggerMiddleware = morgan(function (tokens, req, res) {
   return [
     "🌍",
     colors.bgBlack.bold(` REQUEST `),

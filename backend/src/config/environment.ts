@@ -2,15 +2,23 @@ import * as express from "express";
 import { Application } from "express";
 import path from "path";
 import cookies from "cookie-parser";
-import { morganMiddleware } from "../src/middleware/morgan.middleware";
+import { loggerMiddleware } from "@/middleware/logger.middleware";
+import dotenv from "dotenv";
 
 class EnvironmentConfig {
   private app: Application;
   constructor(app: Application) {
     this.app = app;
+    this.configureEnvVars();
     this.configureExpress();
     this.configureViews();
     this.otherConfigs();
+  }
+
+  private configureEnvVars(): void {
+    dotenv.config({
+      path: path.resolve(__dirname, `../../.env.${process.env.NODE_ENV}`),
+    });
   }
 
   private configureExpress(): void {
@@ -31,7 +39,7 @@ class EnvironmentConfig {
   }
 
   private otherConfigs(): void {
-    this.app.use(morganMiddleware);
+    this.app.use(loggerMiddleware);
     this.app.use(cookies());
   }
 }

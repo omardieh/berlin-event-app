@@ -1,12 +1,6 @@
-import dotenv from "dotenv";
-import path from "path";
 import express, { Application, Request, Response } from "express";
-import { environmentConfig, securityConfig } from "../config";
+import { environmentConfig, securityConfig } from "@/config";
 import colors from "colors";
-
-dotenv.config({
-  path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV}`),
-});
 
 class App {
   public app: Application;
@@ -27,8 +21,7 @@ class App {
     });
   }
 
-  public startServer(): void {
-    const port = process.env.PORT || 3001;
+  public runServer(port: number): void {
     this.app.listen(port, () => {
       console.info(
         [
