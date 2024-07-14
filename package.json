@@ -13,6 +13,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "husky": "^9.0.11"
+  },
+  "husky": {
+  "hooks": {
+    "pre-commit": "pnpm --prefix ./backend format",       
+    "pre-push": ""
   }
+}
 }
