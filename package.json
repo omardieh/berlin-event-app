@@ -17,9 +17,9 @@
     "husky": "^9.0.11"
   },
   "husky": {
-  "hooks": {
-    "pre-commit": "pnpm --prefix ./backend format",       
-    "pre-push": ""
+    "hooks": {
+      "pre-commit": "pnpm --prefix ./backend format",
+      "pre-push": ""
+    }
   }
-}
 }
