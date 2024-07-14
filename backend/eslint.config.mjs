@@ -1,7 +1,8 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
-
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 export default [
   { files: ["**/*.{js,mjs,cjs,ts}"] },
@@ -9,4 +10,22 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  eslintConfigPrettier,
+  eslintPluginPrettierRecommended,
+  {
+    rules: {
+      "prettier/prettier": [
+        "error",
+        {
+          trailingComma: "all",
+          tabWidth: 12,
+          semi: false,
+          singleQuote: true,
+          bracketSpacing: true,
+          eslintIntegration: true,
+          printWidth: 120,
+        },
+      ],
+    },
+  },
 ];
