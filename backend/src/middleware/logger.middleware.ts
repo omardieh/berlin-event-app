@@ -1,8 +1,8 @@
 import morgan from 'morgan';
 import colors from 'colors';
 
-export const loggerMiddleware = morgan(function (tokens, req, res) {
-  return [
+export const loggerMiddleware = morgan((tokens, req, res) =>
+  [
     '🌍',
     colors.bgBlack.bold(` REQUEST `),
     tokens.method(req, res) || '',
@@ -14,5 +14,5 @@ export const loggerMiddleware = morgan(function (tokens, req, res) {
     // colors.green("from " + tokens["remote-addr"](req, res) || ""),
     // colors.yellow.bold("from " + (tokens.referrer(req, res) || "")),
     // colors.blue(tokens["user-agent"](req, res) || ""),
-  ].join(' ');
-});
+  ].join(' '),
+);

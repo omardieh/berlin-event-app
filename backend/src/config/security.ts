@@ -2,14 +2,12 @@ import helmet from 'helmet';
 import cors from 'cors';
 import { Application } from 'express';
 
-class SecurityConfig {
-  private app: Application;
-  constructor(app: Application) {
+export class SecurityConfig {
+  constructor(private app: Application) {
     this.app = app;
     this.configureHelmet();
     this.configureCors();
   }
-
   private configureHelmet(): void {
     // TODO : configure Helmet
     // Using Helmet in Node.js to secure your application :
@@ -24,12 +22,8 @@ class SecurityConfig {
     // https://www.linkedin.com/pulse/configure-cors-node-js-express-naum-asafov-qs6ce
     this.app.use(
       cors({
-        origin: [process.env.CLIENT_URL || `http://localhost:3000`],
+        origin: [process.env.CLIENT_URL || 'http://localhost:3000'],
       }),
     );
   }
 }
-
-export const securityConfig = (app: Application): void => {
-  new SecurityConfig(app);
-};

@@ -5,10 +5,8 @@ import cookies from 'cookie-parser';
 import { loggerMiddleware } from '@/middleware/logger.middleware';
 import dotenv from 'dotenv';
 
-class EnvironmentConfig {
-  private app: Application;
-  constructor(app: Application) {
-    this.app = app;
+export class EnvironmentConfig {
+  constructor(private app: Application) {
     this.configureEnvVars();
     this.configureExpress();
     this.configureViews();
@@ -32,6 +30,7 @@ class EnvironmentConfig {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(express.static(path.join(__dirname, '../../public')));
   }
+
   private configureViews(): void {
     this.app.set('view engine', 'hbs');
     this.app.set('views', path.join(__dirname, '../../views'));
@@ -42,7 +41,3 @@ class EnvironmentConfig {
     this.app.use(cookies());
   }
 }
-
-export const environmentConfig = (app: Application): void => {
-  new EnvironmentConfig(app);
-};
