@@ -1,8 +1,9 @@
-import express, { Application, Request, Response } from 'express';
-import { EnvironmentConfig, SecurityConfig } from './config';
+import express from 'express';
+import { EnvironmentConfig, LoggingConfig, SecurityConfig } from '@/config';
+import { IndexRoutes, UserRoutes } from '@/routes';
 
-export class App {
-  public app: Application;
+class App {
+  public app;
   constructor() {
     this.app = express();
     this.initializeConfigs();
@@ -10,14 +11,14 @@ export class App {
   }
 
   private initializeConfigs(): void {
-    new EnvironmentConfig(this.app);
     new SecurityConfig(this.app);
+    new EnvironmentConfig(this.app);
+    new LoggingConfig(this.app);
   }
 
   private setRoutes(): void {
-    this.app.get('/', (_: Request, res: Response) => {
-      res.render('index', { siteTitle: 'Hello World' });
-    });
+    new IndexRoutes(this.app);
+    new UserRoutes(this.app);
   }
 }
 

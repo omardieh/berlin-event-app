@@ -1,8 +1,6 @@
-import * as express from 'express';
-import { Application } from 'express';
+import express, { Application } from 'express';
 import path from 'path';
 import cookies from 'cookie-parser';
-import { loggerMiddleware } from '@/middleware/logger.middleware';
 import dotenv from 'dotenv';
 
 export class EnvironmentConfig {
@@ -37,7 +35,6 @@ export class EnvironmentConfig {
   }
 
   private otherConfigs(): void {
-    this.app.use(loggerMiddleware);
     this.app.use(cookies());
   }
 }
