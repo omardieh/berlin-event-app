@@ -5,7 +5,7 @@ import cookies from 'cookie-parser';
 import { loggerMiddleware } from '@/middleware/logger.middleware';
 import dotenv from 'dotenv';
 
-class EnvironmentConfig {
+export class EnvironmentConfig {
   private app: Application;
   constructor(app: Application) {
     this.app = app;
@@ -42,7 +42,3 @@ class EnvironmentConfig {
     this.app.use(cookies());
   }
 }
-
-export const environmentConfig = (app: Application): void => {
-  new EnvironmentConfig(app);
-};

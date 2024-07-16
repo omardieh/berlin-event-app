@@ -3,7 +3,7 @@ import colors from 'colors';
 export default {
   server: {
     success: [
-      "🖥️ ",
+      '🖥️ ',
       colors.bgBlack.bold(` SERVER `),
       ` App is running, visit: `,
       colors.blue(`http://localhost:${port}`),
