@@ -1,6 +1,7 @@
 import colors from 'colors';
 
-export default {
+const port = Number(process.env.SERVER_PORT) || 3001;
+export const serverMessages = {
   server: {
     success: [
       '🖥️ ',
@@ -12,7 +13,7 @@ export default {
   error: {
     portInUse: [
       '❌ ',
-      colors.bgRed.bold(` ERROR `),
+      colors.bgBlack.bold(` ERROR `),
       ` Port ${port} is already in use. Please choose another port.`,
     ].join(''),
     serverFailure: (error: NodeJS.ErrnoException) =>

@@ -1,20 +1,25 @@
-import express, { Request, Response } from 'express';
-import { environmentConfig, securityConfig } from './config';
+import express, { Application, Request, Response } from 'express';
+import { EnvironmentConfig, SecurityConfig } from './config';
 
-const app = express();
+export class App {
+  public app: Application;
+  constructor() {
+    this.app = express();
+    this.initializeConfigs();
+    this.setRoutes();
+  }
 
-function initializeConfigs(): void {
-  environmentConfig(app);
-  securityConfig(app);
+  private initializeConfigs(): void {
+    new EnvironmentConfig(this.app);
+    new SecurityConfig(this.app);
+  }
+
+  private setRoutes(): void {
+    this.app.get('/', (_: Request, res: Response) => {
+      res.render('index', { siteTitle: 'Hello World' });
+    });
+  }
 }
 
-function setRoutes(): void {
-  app.get('/', (_: Request, res: Response) => {
-    res.render('index', { siteTitle: 'Hello World' });
-  });
-}
-
-initializeConfigs();
-setRoutes();
-
+const { app } = new App();
 export default app;
