@@ -1,11 +1,10 @@
 import express, { Request, Response } from 'express';
-import { securityConfig } from '@/config';
-// import { IApp } from '@/types';
+import { environmentConfig, securityConfig } from './config';
 
 const app = express();
 
 function initializeConfigs(): void {
-  // new EnvironmentConfig(app);
+  environmentConfig(app);
   securityConfig(app);
 }
 

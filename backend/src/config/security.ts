@@ -2,7 +2,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import { Application } from 'express';
 
-export const securityConfig = function (app: Application) {
+export function securityConfig(app: Application) {
   function configureHelmet(): void {
     // TODO : configure Helmet
     // Using Helmet in Node.js to secure your application :
@@ -23,4 +23,4 @@ export const securityConfig = function (app: Application) {
   }
   configureCors();
   configureHelmet();
-};
+}
