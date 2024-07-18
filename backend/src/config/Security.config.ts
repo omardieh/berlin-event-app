@@ -1,6 +1,6 @@
-import helmet from 'helmet';
 import cors from 'cors';
 import { Application } from 'express';
+import helmet from 'helmet';
 
 export class SecurityConfig {
   constructor(private app: Application) {
@@ -20,10 +20,13 @@ export class SecurityConfig {
     // Configuring CORS in Node.js with Express :
     // https://dev.to/speaklouder/how-to-configure-cors-in-nodejs-with-express-11h
     // https://www.linkedin.com/pulse/configure-cors-node-js-express-naum-asafov-qs6ce
+    const isDevEnv = process.env.NODE_ENV === 'development';
     this.app.use(
-      cors({
-        origin: [process.env.CLIENT_URL || 'http://localhost:3000'],
-      }),
+      isDevEnv
+        ? cors()
+        : cors({
+            origin: [`${process.env.CLIENT_URL}`],
+          }),
     );
   }
 }

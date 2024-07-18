@@ -1,17 +1,17 @@
 import express, { Request, Response, Router } from 'express';
 
-class IndexMain {
-  public indexMainRoutes: Router;
+class IndexRoutes {
+  public indexRoutes: Router;
   constructor() {
-    this.indexMainRoutes = express.Router();
+    this.indexRoutes = express.Router();
     this.loadWelcomePage();
   }
 
   private loadWelcomePage(): void {
-    this.indexMainRoutes.get('/', (_: Request, res: Response) => {
+    this.indexRoutes.get('/', (_: Request, res: Response) => {
       res.render('index', { siteTitle: 'Hello World' });
     });
   }
 }
 
-export const { indexMainRoutes } = new IndexMain();
+export const { indexRoutes } = new IndexRoutes();

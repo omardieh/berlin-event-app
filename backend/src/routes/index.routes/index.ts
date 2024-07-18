@@ -1,9 +1,9 @@
 import { Application } from 'express';
-import { indexMainRoutes } from './index.index.routes';
+import { indexRoutes } from './index.routes';
 
-export class IndexRoutes {
+export class InitiateIndexRoutes {
   constructor(public app: Application) {
     this.app = app;
-    this.app.use('/', indexMainRoutes);
+    this.app.use('/', indexRoutes);
   }
 }
