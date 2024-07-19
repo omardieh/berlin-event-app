@@ -6,7 +6,7 @@ This is a full-stack application. It includes both a server-side and client-side
 
 ## Requirements
 
-Node version: `v18.20.4` or `20.9.0` lts
+Node version `v18.20.4` or `20.9.0` lts
 
 ## Installation
 
