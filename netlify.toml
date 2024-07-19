@@ -1,8 +1,9 @@
 # example netlify.toml
 [build]
-  command = "pnpm --prefix ./frontend build"
-  functions = "./frontend/netlify/functions"
-  publish = "./frontend/.next"
+  base = "frontend"
+  command = "next build"
+  functions = "netlify/functions"
+  publish = ".next"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
