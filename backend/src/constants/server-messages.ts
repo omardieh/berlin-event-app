@@ -1,6 +1,6 @@
 import colors from 'colors';
 
-const port = Number(process.env.SERVER_PORT) || 3001;
+const port = Number(process.env.PORT) || 3001;
 export const serverMessages = {
   server: {
     success: [

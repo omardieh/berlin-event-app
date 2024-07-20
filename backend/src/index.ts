@@ -31,6 +31,6 @@ class Server {
   }
 }
 
-const port = Number(process.env.SERVER_PORT) || 3001;
-const host = process.env.SERVER_HOST || 'localhost';
+const port = Number(process.env.PORT) || 3001;
+const host = process.env.HOST || 'localhost';
 new Server(port, host);
