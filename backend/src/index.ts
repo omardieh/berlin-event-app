@@ -4,8 +4,12 @@ import { DbMiddleware } from '@/middleware';
 import { IDbMiddleware } from '@/types';
 class Server {
   private db: IDbMiddleware;
-  constructor(public port: number) {
+  constructor(
+    public port: number,
+    public host: string,
+  ) {
     this.port = port;
+    this.host = host;
     this.db = new DbMiddleware();
     this.runServer();
   }
@@ -13,7 +17,7 @@ class Server {
   private async runServer() {
     try {
       await this.db.connectDB();
-      app.listen(this.port, () => {
+      app.listen(this.port, this.host, () => {
         console.info(messages.server.success);
       });
     } catch (error) {
@@ -28,4 +32,5 @@ class Server {
 }
 
 const port = Number(process.env.SERVER_PORT) || 3001;
-new Server(port);
+const host = process.env.SERVER_HOST || 'localhost';
+new Server(port, host);
