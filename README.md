@@ -24,9 +24,10 @@ To run the application in development mode, use the following command:
 pnpm app:dev
 ```
 
-## Production
+## Deployment
 
-To run the application in production mode, use the following command:
+frontend: `https://vercel.com`
+backend: `https://railway.app`
 
 ```bash
 pnpm app:prod
