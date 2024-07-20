@@ -8,7 +8,7 @@
     "lint": "eslint",
     "format": "eslint --fix",
     "build": "pnpm tsc",
-    "start": "set NODE_ENV=production&&pnpm build&&node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/index.js",
+    "start": "set NODE_ENV=production&&node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/index.js",
     "dev": "set NODE_ENV=development&&nodemon src/index.ts"
   },
   "keywords": [],
