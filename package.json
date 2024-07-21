@@ -9,8 +9,7 @@
     "app:install": "pnpm install && pnpm --prefix ./backend install && pnpm --prefix ./frontend install",
     "app:clear": "rm -rf node_modules/ .husky/ frontend/node_modules/ frontend/.next/ frontend/build/ backend/node_modules/ backend/dist/ backend/coverage/",
     "test": "pnpm --prefix ./backend test",
-    "prepare": "husky",
-    "git:frontend": "git diff HEAD^ HEAD --quiet -- ./frontend/"
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
