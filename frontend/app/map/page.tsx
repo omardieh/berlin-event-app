@@ -1,6 +1,13 @@
 "use client";
-import { MapScreenDynamic } from "@/features";
 import { IMapScreen } from "@/types";
+import dynamic from "next/dynamic";
+
+const DynamicMapScreen = dynamic(
+  async () => (await import("@/features")).MapScreen,
+  {
+    ssr: false,
+  }
+);
 
 export default function Map() {
   const mapOptions: IMapScreen = {
@@ -16,7 +23,7 @@ export default function Map() {
   return (
     <>
       <div className="h-[calc(100vh-6em)] w-screen">
-        <MapScreenDynamic {...mapOptions} />
+        <DynamicMapScreen {...mapOptions} />
       </div>
     </>
   );

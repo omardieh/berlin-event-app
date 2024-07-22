@@ -1,2 +1,2 @@
 import "./Leaflet/LeafletStyles.css";
-export * from "./MapScreen.dynamic";
+export * from "./MapScreen";
