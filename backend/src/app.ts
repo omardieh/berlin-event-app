@@ -1,5 +1,5 @@
 import { EnvironmentConfig, LoggingConfig, SecurityConfig } from '@/config';
-import { InitiateIndexRoutes, InitiateUserRoutes } from '@/routes';
+import { InitiateIndexRoutes, InitiateMapRoutes, InitiateUserRoutes } from '@/routes';
 import express from 'express';
 
 class App {
@@ -19,6 +19,7 @@ class App {
   private setRoutes(): void {
     new InitiateIndexRoutes(this.app);
     new InitiateUserRoutes(this.app);
+    new InitiateMapRoutes(this.app);
   }
 }
 
