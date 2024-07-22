@@ -1,6 +1,6 @@
 import { IMapScreen } from "@/types";
 import axios from "axios";
-import type { MapOptions } from "leaflet";
+import type { LatLngTuple, MapOptions } from "leaflet";
 import { useEffect, useState } from "react";
 import { MapContainer, Polygon, Popup, TileLayer } from "react-leaflet";
 
@@ -36,10 +36,9 @@ export const MapScreen: React.FC<IMapScreen & MapOptions> = ({
           }
 
           // Convert coordinates to [lat, lng] format
-          const position = club.geometry.coordinates[0].map(([lng, lat]) => [
-            lat,
-            lng,
-          ]);
+          const position: LatLngTuple[] = club.geometry.coordinates[0].map(
+            ([lng, lat]) => [lat, lng]
+          );
 
           return (
             <Polygon
@@ -102,7 +101,7 @@ interface Club {
     id?: string;
   };
   geometry: {
-    type: string;
+    type: "Polygon";
     coordinates: [number, number][][];
   };
 }
