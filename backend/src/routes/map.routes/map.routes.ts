@@ -13,7 +13,6 @@ class MapRoutes {
       const locations = await MapModel.find({
         'properties.amenity': 'nightclub',
       });
-      console.log(locations);
       res.json(locations);
     });
   }
