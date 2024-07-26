@@ -1,5 +1,5 @@
-import { headerLinks } from "@/constants/headerLinks";
-import { IHeaderLink } from "@/types";
+import { HEADER_LINKS } from "@/common";
+import { IHEADER_LINKS } from "@/types";
 import Link from "next/link";
 
 export const HeaderNavbar = () => {
@@ -11,8 +11,8 @@ export const HeaderNavbar = () => {
         </Link>
       </div>
       <ul className="flex items-center space-x-4">
-        {headerLinks.map(
-          ({ href, className, text }: IHeaderLink, index: number) => (
+        {HEADER_LINKS.map(
+          ({ href, className, text }: IHEADER_LINKS, index: number) => (
             <li key={index}>
               <Link href={href} className={className}>
                 {text}

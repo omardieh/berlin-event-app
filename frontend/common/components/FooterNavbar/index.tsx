@@ -1,5 +1,5 @@
-import { footerLinks } from "@/constants/footerLinks";
-import { IFooterLink } from "@/types";
+import { FOOTER_LINKS } from "@/common";
+import { IFOOTER_LINKS } from "@/types";
 import Link from "next/link";
 
 export const FooterNavbar = () => {
@@ -11,8 +11,8 @@ export const FooterNavbar = () => {
         </p>
       </div>
       <ul className="flex space-x-4">
-        {footerLinks.map(
-          ({ href, className, text }: IFooterLink, index: number) => (
+        {FOOTER_LINKS.map(
+          ({ href, className, text }: IFOOTER_LINKS, index: number) => (
             <li key={index + href}>
               <Link href={href} className={className}>
                 {text}

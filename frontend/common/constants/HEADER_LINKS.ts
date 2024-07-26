@@ -1,6 +1,6 @@
-import { IHeaderLink } from "@/types";
+import { IHEADER_LINKS } from "@/types";
 
-export const headerLinks: IHeaderLink[] = [
+export const HEADER_LINKS: IHEADER_LINKS[] = [
   {
     href: "/",
     text: "Home",

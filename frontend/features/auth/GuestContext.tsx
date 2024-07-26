@@ -1,23 +1,23 @@
 "use client";
-import { IAuthContextProviderProps, IAuthContextType } from "@/types";
+import { IGuestContext, IGuestContextProvider } from "@/types";
 import { createContext, FC, useContext, useState } from "react";
 
-const AuthContext = createContext<IAuthContextType | {}>({});
+const GuestContext = createContext<IGuestContext | {}>({});
 
-export const AuthContextProvider: FC<IAuthContextProviderProps> = ({
+export const GuestContextProvider: FC<IGuestContextProvider> = ({
   children,
 }) => {
   const [guest, setGuest] = useState({});
 
   return (
-    <AuthContext.Provider value={{ guest, setGuest }}>
+    <GuestContext.Provider value={{ guest, setGuest }}>
       {children}
-    </AuthContext.Provider>
+    </GuestContext.Provider>
   );
 };
 
-export const useAuthContext = () => {
-  const context = useContext(AuthContext);
+export const useGuestContext = () => {
+  const context = useContext(GuestContext);
   if (!context) {
     throw new Error(
       "useAuthContext must be used within an AuthContextProvider"
