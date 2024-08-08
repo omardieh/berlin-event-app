@@ -1,1 +1,2 @@
-export * from './Map.model';
+export * from './Amenity.model';
+export * from './Location.model';
